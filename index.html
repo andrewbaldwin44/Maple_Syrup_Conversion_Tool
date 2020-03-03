@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Maple Syrup Converter</title>
+  </head>
+  <h1>Convert the sugar in your recipes to maple syrup!</h1>
+  <body>
+    <form id="form">
+      <section id="sugar">
+        <label for="sugarEntry">Sugar</label>
+        <input id="sugarEntry" name="sugarEntry" type="number" oninput="convert(this)"
+          min="1" value="1">
+        <select id="sugarSelect" class="dropdown" type="dropdown" name="sugarSelect"
+          onchange="convert(this)">
+          <option value="1" selected>Cups</option>
+          <option value="2">Tablespoons</option>
+        </select>
+      </section>
+      <p id="equal">=</p>
+      <section id="maple">
+        <label for="mapleEntry">Maple Syrup</label>
+        <input id="mapleEntry" name="mapleEntry" type="number" oninput="convert(this)"
+          min="1" value="0.75">
+        <select id="mapleSelect" class="dropdown" type="dropdown" name="mapleSelect"
+          onchange="convert(this)">
+          <option value="1" selected>Cups</option>
+          <option value="2">Tablespoons</option>
+        </select>
+      </section>
+    </form>
+    <p id="liquid">And remove 1 tablespoon of liquid</p>
+  </body>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+</html>
