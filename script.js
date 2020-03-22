@@ -6,6 +6,17 @@ let mapleSelect = document.querySelector("#mapleSelect");
 
 const liquidPar = document.querySelector("#liquid");
 
+function updateLiquidAmount() {
+  let liquidAmount = 0;
+  sugarSelect.value == 1
+    ? liquidAmount = Math.round(sugarEntry.value *100) / 100
+    : liquidAmount = Math.round((sugarEntry.value * 1/16) * 100) / 100
+  liquidPar.textContent = `And remove ${liquidAmount == 1
+    ? liquidAmount + " tablespoon"
+    : liquidAmount + " tablespoons"}
+      of liquid`;
+}
+
 function convert(e) {
   let sugarSelectedItem = sugarSelect.options[sugarSelect.selectedIndex].text;
   let mapleSelectedItem = mapleSelect.options[mapleSelect.selectedIndex].text;
@@ -21,27 +32,15 @@ function convert(e) {
     multiplier = 16;
   }
 
-  let liquidAmount = 1;
-  if (e.id == "sugarEntry" || e.id == "sugarSelect") {
+  if (e.id == "sugarEntry" || e.id == "mapleSelect") {
     mapleEntry.value = 3/4 * sugarEntry.value * multiplier;
-    sugarSelect.value == 1
-      ? liquidAmount = Math.round(sugarEntry.value *100) / 100
-      : liquidAmount = Math.round((sugarEntry.value * 1/16) * 100) / 100
-    liquidPar.textContent = `And remove ${liquidAmount == 1
-      ? liquidAmount + " tablespoon"
-      : liquidAmount + " tablespoons"}
-        of liquid`;
+    updateLiquidAmount();
   }
-  if (e.id == "mapleEntry" || e.id == "mapleSelect") {
+  if (e.id == "mapleEntry" || e.id == "sugarSelect") {
     sugarEntry.value = 4/3 * mapleEntry.value / multiplier;
-    sugarSelect.value == 1
-      ? liquidAmount = Math.round(sugarEntry.value * 100) / 100
-      : liquidAmount = Math.round((sugarEntry.value * 1/16) * 100) / 100
-    liquidPar.textContent = `And remove ${liquidAmount == 1
-      ? liquidAmount + " tablespoon"
-      : liquidAmount + " tablespoons"}
-        of liquid`;
+    updateLiquidAmount();
   }
+
   sugarEntry.value = Math.round(sugarEntry.value *100) / 100;
   mapleEntry.value = Math.round(mapleEntry.value *100) / 100;
 }

@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
 html {
-  font-family: sans-serif;
+  font-family: Quicksand, sans-serif;
+  font-weight: bold;
   background-image: linear-gradient(50deg, rgb(176, 102, 102), rgb(185, 126, 126));
-  height: 100%;
-  line-height: 20px;
+  height: 100vh;
+  line-height: 40px;
+  overflow-y: hidden;
 }
 
 h1 {
   text-align: center;
-  margin: 50px 0;
+  margin: 5vh 0;
   font-size: 34px;
 }
 
@@ -16,36 +20,43 @@ label {
 }
 
 #form {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.3fr 0.1fr 0.3fr;
+  grid-template-rows: ;
   justify-content: space-around;
+
   height: 200px;
-  margin-top: 20%;
+  margin-top: 20vh;
   text-align: center;
 }
 #sugar, #maple {
   display: grid;
 }
 #equal {
+  font-size: 60px;
   padding-top: 9%;
 }
 
 input, select {
   padding: 10px 20px;
-  width: 70%;
+  width: 30vw;
   margin: 0 auto;
   text-align: center;
   font-size: 20px;
 }
 select {
-  width: 84%;
-}
-input:focus, select:focus {
-  border: 1px solid black;
+  width: 100%;
 }
 
 #liquid {
-  margin-top: 25%;
+  margin-top: 25vh;
   text-align: center;
   font-style: oblique;
-  font-size: 26px;
+  font-size: 28px;
+}
+
+@media (max-width: 800px) {
+  h1 {margin-top: 5%}
+  #form {margin-top: 30%}
+  #liquid {margin-top: 30%}
 }
